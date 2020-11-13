@@ -1,5 +1,6 @@
 const pwd = require("./pwd");
 const ls = require("./ls");
+const cat = require('./cat');
 
 process.stdout.write("prompt > ");
 
@@ -11,6 +12,10 @@ process.stdin.on("data", (data) => {
   }
   if (cmd === 'ls') {
     ls();
+  }
+  if(cmd.startsWith('cat')) {
+    const fileName = cmd.slice(4);
+    cat(fileName);
   }
 
 });
